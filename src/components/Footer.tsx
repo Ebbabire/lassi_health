@@ -1,8 +1,8 @@
 export const Footer = () => {
   return (
     <footer className="py-12 px-4 border-t border-white/5">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="flex flex-col items-center md:items-start">
+      <div className="max-w-7xl mx-auto flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center">
           <p className="text-sm text-slate-500">
             &copy; {new Date().getFullYear()} Lassi Health, Inc. All rights reserved.
           </p>

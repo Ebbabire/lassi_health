@@ -22,6 +22,7 @@ type IntakeFormData = z.infer<typeof intakeSchema>;
 export const IntakeForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [time, setTime] = useState("");
   const form = useRef<HTMLFormElement>(null);
 
@@ -35,6 +36,7 @@ export const IntakeForm: React.FC = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(false);
 
     // Set the timestamp when form is submitted
     const timestamp = new Date().toLocaleString("en-US", {
@@ -51,6 +53,7 @@ export const IntakeForm: React.FC = () => {
     if (!form.current) {
       console.error("Form reference is null");
       setIsSubmitting(false);
+      setSubmitError(true);
       return;
     }
 
@@ -65,8 +68,7 @@ export const IntakeForm: React.FC = () => {
       setSubmitted(true);
     } catch (error) {
       console.error("Submission error:", error);
-      // Show error to user - you could add error state handling here
-      alert("Failed to submit request. Please try again.");
+      setSubmitError(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -242,6 +244,33 @@ export const IntakeForm: React.FC = () => {
             "Submit Request"
           )}
         </button>
+
+        {submitError && (
+          <div className="bg-rose-500/10 border border-rose-500/50 rounded-lg p-4 flex items-start gap-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-rose-500 shrink-0 mt-0.5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <div className="flex-1">
+              <h3 className="text-sm font-medium text-rose-400 mb-1">
+                Submission Failed
+              </h3>
+              <p className="text-xs text-rose-300/80 leading-relaxed">
+                We couldn't process your request at this time. Please check your
+                internet connection and try again. If the problem persists,
+                contact us directly.
+              </p>
+            </div>
+          </div>
+        )}
 
         <p className="text-[11px] text-slate-400 text-center leading-relaxed px-4 pt-2">
           By submitting, you agree to our confidential pilot terms. Lassi Health

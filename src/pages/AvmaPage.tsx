@@ -57,8 +57,8 @@ export const AvmaPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0D0F12] text-slate-200 flex flex-col items-center justify-center p-4 sm:p-8 font-sans">
-      <div className="w-full max-w-md space-y-8 pb-10">
+    <div className="min-h-dvh bg-[#0D0F12] text-slate-200 flex flex-col items-center justify-center p-4 sm:p-8 font-sans">
+      <div className="w-full max-w-md space-y-6 pb-4">
         {/* Headline */}
         <h1 className="text-3xl sm:text-4xl mt-4 font-serif font-bold text-center text-white">
           Revolutionize your veterinary practice
@@ -81,14 +81,14 @@ export const AvmaPage: React.FC = () => {
         </div>
 
         {/* Short Explanation */}
-        <p className="text-center text-slate-400 text-lg">
+        <p className="text-center text-slate-400 text-sm sm:text-base">
           Lassi Health is an AI decision support tool designed to assist
           veterinarians in complex case reasoning and evidence-based decision
           making.
         </p>
 
         {/* 3 Bullets */}
-        <ul className="space-y-3 text-slate-300 px-2">
+        <ul className="space-y-2 text-slate-300 px-2 text-sm sm:text-base">
           <li className="flex gap-3 items-start">
             <span className="text-indigo-500 font-bold mt-0.5">✓</span>
             <span>Instant differential diagnosis support</span>

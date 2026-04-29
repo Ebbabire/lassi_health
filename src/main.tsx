@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { AvmaPage } from './pages/AvmaPage.tsx'
+import { Toaster } from './components/ui/sonner.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -13,5 +14,6 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/avma" element={<AvmaPage />} />
       </Routes>
     </BrowserRouter>
+    <Toaster position="bottom-center" />
   </StrictMode>,
 )

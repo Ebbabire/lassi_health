@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
 import avmaVideo from "../assets/6234581-uhd_3840_2160_25fps.mp4";
+import { toast } from "sonner";
 
 const avmaSchema = z.object({
   email: z
@@ -16,7 +17,6 @@ type AvmaFormData = z.infer<typeof avmaSchema>;
 export const AvmaPage: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
   const form = useRef<HTMLFormElement>(null);
 
   const {
@@ -29,12 +29,13 @@ export const AvmaPage: React.FC = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitError(false);
 
     if (!form.current) {
       console.error("Form reference is null");
       setIsSubmitting(false);
-      setSubmitError(true);
+      toast.error("Submission Failed", {
+        description: "An unexpected error occurred. Please try again.",
+      });
       return;
     }
 
@@ -50,7 +51,9 @@ export const AvmaPage: React.FC = () => {
       setSubmitted(true);
     } catch (error) {
       console.error("Submission error:", error);
-      setSubmitError(true);
+      toast.error("Submission Failed", {
+        description: "Please check your connection and try again.",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -58,9 +61,9 @@ export const AvmaPage: React.FC = () => {
 
   return (
     <div className="min-h-dvh bg-[#0D0F12] text-slate-200 flex flex-col items-center justify-center p-4 sm:p-8 font-sans">
-      <div className="w-full max-w-md space-y-6 pb-4">
+      <div className="w-full max-w-md space-y-6 pb-8">
         {/* Headline */}
-        <h1 className="text-3xl sm:text-4xl mt-4 font-serif font-bold text-center text-white">
+        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-center text-white">
           Revolutionize your veterinary practice
         </h1>
 
@@ -188,31 +191,6 @@ export const AvmaPage: React.FC = () => {
                 "Get early access"
               )}
             </button>
-
-            {submitError && (
-              <div className="bg-rose-500/10 border border-rose-500/50 rounded-lg p-4 flex items-start gap-3 mt-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-rose-500 shrink-0 mt-0.5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <div className="flex-1">
-                  <h3 className="text-sm font-medium text-rose-400 mb-1">
-                    Submission Failed
-                  </h3>
-                  <p className="text-xs text-rose-300/80 leading-relaxed">
-                    Please check your connection and try again.
-                  </p>
-                </div>
-              </div>
-            )}
           </form>
         )}
       </div>

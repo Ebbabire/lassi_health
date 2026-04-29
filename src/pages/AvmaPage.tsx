@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
-import avmaVideo from "../assets/6234581-uhd_3840_2160_25fps.mp4";
-import { toast } from "sonner";
+
+import avmaVideo from "@/assets/6234581-uhd_3840_2160_25fps.mp4";
+import videoPoster from "@/assets/poster.png";
 
 const avmaSchema = z.object({
   email: z
@@ -68,14 +70,14 @@ export const AvmaPage: React.FC = () => {
         </h1>
 
         {/* Autoplay Video Placeholder */}
-        <div className="w-full aspect-video bg-slate-800 rounded-xl overflow-hidden border border-slate-800 shadow-2xl shadow-indigo-900/20">
+        <div className="w-full aspect-video bg-[image:var(--background-image-avma-blur)] bg-cover bg-center animate-pulse rounded-xl overflow-hidden border border-slate-800 shadow-2xl shadow-indigo-900/20">
           <video
             autoPlay
             loop
             muted
             playsInline
             disableRemotePlayback
-            poster="/video-poster.jpg"
+            poster={videoPoster}
             className="w-full h-full object-cover"
           >
             <source src={avmaVideo} type="video/mp4" />

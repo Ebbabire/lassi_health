@@ -5,7 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
 
-import avmaVideo from "@/assets/6234581-uhd_3840_2160_25fps.mp4";
+import avmaVideo from "@/assets/compressed_video.mp4";
 import videoPoster from "@/assets/poster.png";
 
 const avmaSchema = z.object({
@@ -70,7 +70,10 @@ export const AvmaPage: React.FC = () => {
         </h1>
 
         {/* Autoplay Video Placeholder */}
-        <div className="w-full aspect-video bg-[image:var(--background-image-avma-blur)] bg-cover bg-center animate-pulse rounded-xl overflow-hidden border border-slate-800 shadow-2xl shadow-indigo-900/20">
+        <div
+          className="w-full aspect-video bg-cover bg-center rounded-xl overflow-hidden border border-slate-800 shadow-2xl shadow-indigo-900/20"
+          style={{ backgroundImage: `url(${videoPoster})` }}
+        >
           <video
             autoPlay
             loop

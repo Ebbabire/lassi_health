@@ -72,7 +72,7 @@ export const AvmaPage: React.FC = () => {
         {/* Autoplay Video Placeholder */}
         <div
           className="w-full aspect-video bg-cover bg-center rounded-xl overflow-hidden border border-slate-800 shadow-2xl shadow-indigo-900/20"
-          style={{ backgroundImage: `url(${videoPoster})` }}
+          // style={{ backgroundImage: `url(${videoPoster})` }}
         >
           <video
             autoPlay

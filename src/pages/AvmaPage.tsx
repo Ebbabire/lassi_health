@@ -5,8 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
 
-import avmaVideo from "@/assets/compressed_video.mp4";
-import videoPoster from "@/assets/poster.png";
+import dashImage from "@/assets/dash.png";
 
 const avmaSchema = z.object({
   email: z
@@ -66,48 +65,47 @@ export const AvmaPage: React.FC = () => {
       <div className="w-full max-w-md space-y-6 pb-8">
         {/* Headline */}
         <h1 className="text-3xl sm:text-4xl font-serif font-bold text-center text-white">
-          Revolutionize your veterinary practice
+          Walk in ready.
         </h1>
 
-        {/* Autoplay Video Placeholder */}
-        <div
-          className="w-full aspect-video bg-cover bg-center rounded-xl overflow-hidden border border-slate-800 shadow-2xl shadow-indigo-900/20"
-          // style={{ backgroundImage: `url(${videoPoster})` }}
-        >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            disableRemotePlayback
-            poster={videoPoster}
+        {/* Dashboard Screenshot */}
+        <div className="w-full aspect-video rounded-xl overflow-hidden border border-slate-800 shadow-2xl shadow-indigo-900/20">
+          <img
+            src={dashImage}
+            alt="Lassi clinical continuity dashboard showing active cases and the longitudinal clinical thread"
             className="w-full h-full object-cover"
-          >
-            <source src={avmaVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          />
         </div>
 
         {/* Short Explanation */}
         <p className="text-center text-slate-400 text-sm sm:text-base">
-          Lassi Health is an AI decision support tool designed to assist
-          veterinarians in complex case reasoning and evidence-based decision
-          making.
+          Your practice shouldn't start every morning with chart reconstruction.
+          Lassi keeps the clinical thread organized so you already know what
+          changed, what still matters, and what needs attention before you walk
+          into the room.
         </p>
 
-        {/* 3 Bullets */}
+        {/* Product Pillars */}
         <ul className="space-y-2 text-slate-300 px-2 text-sm sm:text-base">
           <li className="flex gap-3 items-start">
             <span className="text-indigo-500 font-bold mt-0.5">✓</span>
-            <span>Instant differential diagnosis support</span>
+            <span>Active clinical states</span>
           </li>
           <li className="flex gap-3 items-start">
             <span className="text-indigo-500 font-bold mt-0.5">✓</span>
-            <span>Evidence-based treatment pathways</span>
+            <span>Unresolved obligations</span>
           </li>
           <li className="flex gap-3 items-start">
             <span className="text-indigo-500 font-bold mt-0.5">✓</span>
-            <span>Seamless integration into your daily workflow</span>
+            <span>Pending diagnostic follow-up</span>
+          </li>
+          <li className="flex gap-3 items-start">
+            <span className="text-indigo-500 font-bold mt-0.5">✓</span>
+            <span>Returning patient continuity</span>
+          </li>
+          <li className="flex gap-3 items-start">
+            <span className="text-indigo-500 font-bold mt-0.5">✓</span>
+            <span>Longitudinal clinical thread</span>
           </li>
         </ul>
 
@@ -193,7 +191,7 @@ export const AvmaPage: React.FC = () => {
                   Submitting...
                 </>
               ) : (
-                "Get early access"
+                "Request a Demo"
               )}
             </button>
           </form>

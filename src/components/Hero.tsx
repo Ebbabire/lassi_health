@@ -9,11 +9,11 @@ export const Hero = () => {
       </div>
       
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-5">
-        Clinical Intelligence & Decision Support
+        Walk in ready.
       </h1>
       
       <p className="text-lg md:text-xl text-slate-400 font-normal leading-relaxed max-w-2xl">
-        Operating in closed beta with select partner clinics to assist veterinarians in complex case reasoning and evidence-based decision making.
+        Your practice shouldn't start every morning with chart reconstruction. Lassi keeps the clinical thread organized so you already know what changed, what still matters, and what needs attention before you walk into the room.
       </p>
     </section>
   );

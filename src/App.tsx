@@ -2,6 +2,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { IntakeForm } from "./components/IntakeForm";
+import { ProductShowcase } from "./components/ProductShowcase";
 
 function App() {
   return (
@@ -10,6 +11,11 @@ function App() {
 
       <main className="grow">
         <Hero />
+        <section className="px-4 pb-12">
+          <div className="max-w-5xl mx-auto">
+            <ProductShowcase />
+          </div>
+        </section>
         <section className="pb-24 px-4">
           <div className="max-w-7xl mx-auto">
             <IntakeForm />

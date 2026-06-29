@@ -5,7 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
 
-import dashImage from "@/assets/dash.png";
+import { ProductShowcase } from "@/components/ProductShowcase";
 
 const avmaSchema = z.object({
   email: z
@@ -62,27 +62,22 @@ export const AvmaPage: React.FC = () => {
 
   return (
     <div className="min-h-dvh bg-[#0D0F12] text-slate-200 flex flex-col items-center justify-center p-4 sm:p-8 font-sans">
-      <div className="w-full max-w-md space-y-6 pb-8">
+      <div className="w-full max-w-4xl space-y-8 pb-8">
         {/* Headline */}
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-center text-white">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-center text-white">
           Walk in ready.
         </h1>
 
         {/* Dashboard Screenshot */}
-        <div className="w-full aspect-video rounded-xl overflow-hidden border border-slate-800 shadow-2xl shadow-indigo-900/20">
-          <img
-            src={dashImage}
-            alt="Lassi clinical continuity dashboard showing active cases and the longitudinal clinical thread"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <ProductShowcase />
 
+        <div className="max-w-md mx-auto space-y-6">
         {/* Short Explanation */}
-        <p className="text-center text-slate-400 text-sm sm:text-base">
-          Your practice shouldn't start every morning with chart reconstruction.
-          Lassi keeps the clinical thread organized so you already know what
-          changed, what still matters, and what needs attention before you walk
-          into the room.
+        <p className="text-center text-slate-400 text-sm sm:text-base leading-relaxed">
+          Whether you're opening the exam room door, reviewing new results, taking a referral, or calling an owner, you'll already know where the case stands.
+        </p>
+        <p className="text-center text-slate-400 text-sm sm:text-base leading-relaxed">
+          Lassi continuously maintains the current state of management so every clinical interaction begins with orientation rather than reconstruction.
         </p>
 
         {/* Product Pillars */}
@@ -196,6 +191,7 @@ export const AvmaPage: React.FC = () => {
             </button>
           </form>
         )}
+        </div>
       </div>
     </div>
   );

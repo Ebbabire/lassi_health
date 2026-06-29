@@ -1,14 +1,9 @@
 export const Header = () => {
   return (
-    <header className="py-12 flex justify-center items-center">
-      <div className="flex items-center gap-3">
-        {/* <div className="h-9 w-9 bg-indigo-500 rounded-lg flex items-center justify-center shadow-sm">
-            <span className="text-[#ffffff] font-bold text-lg">L</span>
-          </div> */}
-        <span className="text-2xl font-serif font-bold tracking-tight text-white">
-          Lassi
-        </span>
-      </div>
+    <header className="py-8 md:py-10 flex justify-center items-center">
+      <span className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-white/90">
+        Lassi
+      </span>
     </header>
   );
 };

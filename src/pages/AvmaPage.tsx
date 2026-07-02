@@ -61,11 +61,14 @@ export const AvmaPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-dvh bg-[#0D0F12] text-slate-200 flex flex-col items-center justify-center p-4 sm:p-8 font-sans">
-      <div className="w-full max-w-4xl space-y-8 pb-8">
+    <div className="min-h-dvh bg-[#0D0F12] relative text-slate-200 flex flex-col items-center justify-center p-4 sm:p-8 font-sans">
+      {/* Ambient background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[600px] bg-indigo-900/20 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="w-full max-w-4xl space-y-8 pb-8 relative z-10">
         {/* Headline */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-center text-white">
-          Walk in ready.
+          Walk in ready<span className="text-indigo-500">.</span>
         </h1>
 
         {/* Dashboard Screenshot */}
@@ -159,7 +162,7 @@ export const AvmaPage: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed text-white font-medium py-3.5 rounded-lg transition-all transform active:scale-[0.98] focus:ring-4 focus:ring-indigo-500/30 flex items-center justify-center gap-2 text-lg"
+              className="w-full bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 disabled:from-slate-800 disabled:to-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed disabled:border-slate-700 disabled:shadow-none text-white font-medium py-3.5 rounded-lg transition-all transform active:scale-[0.98] focus:ring-4 focus:ring-indigo-500/30 flex items-center justify-center gap-2 text-lg shadow-inner shadow-white/20 border border-indigo-400/20"
             >
               {isSubmitting ? (
                 <>

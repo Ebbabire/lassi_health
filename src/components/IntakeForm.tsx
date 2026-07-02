@@ -214,7 +214,7 @@ export const IntakeForm: React.FC = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed text-white font-medium py-3 rounded-lg transition-all transform active:scale-[0.98] focus:ring-4 focus:ring-indigo-500/30 flex items-center justify-center gap-2 mt-2"
+          className="w-full bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 disabled:from-slate-800 disabled:to-slate-800 disabled:text-slate-500 disabled:cursor-not-allowed disabled:border-slate-700 disabled:shadow-none text-white font-medium py-3 rounded-lg transition-all transform active:scale-[0.98] focus:ring-4 focus:ring-indigo-500/30 flex items-center justify-center gap-2 mt-2 shadow-inner shadow-white/20 border border-indigo-400/20"
         >
           {isSubmitting ? (
             <>

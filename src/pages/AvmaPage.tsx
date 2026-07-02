@@ -74,12 +74,12 @@ export const AvmaPage: React.FC = () => {
         {/* Dashboard Screenshot */}
         <ProductShowcase />
 
-        <div className="max-w-md mx-auto space-y-6">
+        <div className="max-w-md mx-auto space-y-5">
         {/* Short Explanation */}
-        <p className="text-center text-slate-400 text-sm sm:text-base leading-relaxed">
+        <p className="text-center text-slate-400 text-sm md:text-base leading-relaxed px-2">
           Whether you're opening the exam room door, reviewing new results, taking a referral, or calling an owner, you'll already know where the case stands.
         </p>
-        <p className="text-center text-slate-400 text-sm sm:text-base leading-relaxed">
+        <p className="text-center text-slate-400 text-sm md:text-base leading-relaxed px-2">
           Lassi continuously maintains the current state of management so every clinical interaction begins with orientation rather than reconstruction.
         </p>
 

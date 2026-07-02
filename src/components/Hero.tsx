@@ -12,10 +12,10 @@ export const Hero = () => {
         Walk in ready<span className="text-indigo-500">.</span>
       </h1>
       
-      <p className="text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
+      <p className="text-base md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
         Whether you're opening the exam room door, reviewing new results, taking a referral, or calling an owner, you'll already know where the case stands.
       </p>
-      <p className="text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mt-4">
+      <p className="text-base md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mt-4">
         Lassi continuously maintains the current state of management so every clinical interaction begins with orientation rather than reconstruction.
       </p>
     </section>

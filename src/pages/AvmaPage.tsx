@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
 
+import { Footer } from "@/components/Footer";
 import { ProductShowcase } from "@/components/ProductShowcase";
 
 const avmaSchema = z.object({
@@ -61,11 +62,12 @@ export const AvmaPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-dvh bg-[#0D0F12] relative text-slate-200 flex flex-col items-center justify-center p-4 sm:p-8 font-sans">
+    <div className="min-h-dvh bg-[#0D0F12] relative text-slate-200 flex flex-col font-sans">
       {/* Ambient background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[600px] bg-indigo-900/20 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="w-full max-w-4xl space-y-8 pb-8 relative z-10">
+      <div className="grow flex flex-col items-center justify-center p-4 sm:p-8 relative z-10">
+      <div className="w-full max-w-4xl space-y-8 pb-8">
         {/* Headline */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-center text-white">
           Walk in ready<span className="text-indigo-500">.</span>
@@ -196,6 +198,9 @@ export const AvmaPage: React.FC = () => {
         )}
         </div>
       </div>
+      </div>
+
+      <Footer />
     </div>
   );
 };

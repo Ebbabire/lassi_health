@@ -6,7 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
 
 import { Footer } from "@/components/Footer";
-import { ProductShowcase } from "@/components/ProductShowcase";
+import { Header } from "@/components/Header";
+import { VideoShowcase } from "@/components/VideoShowcase";
 
 const avmaSchema = z.object({
   email: z
@@ -66,15 +67,18 @@ export const AvmaPage: React.FC = () => {
       {/* Ambient background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[600px] bg-indigo-900/20 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="grow flex flex-col items-center justify-center p-4 sm:p-8 relative z-10">
+      <div className="relative z-10 flex flex-col min-h-dvh">
+        <Header />
+
+        <div className="grow flex flex-col items-center justify-center p-4 sm:p-8">
       <div className="w-full max-w-4xl space-y-8 pb-8">
         {/* Headline */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-center text-white">
           Walk in ready<span className="text-indigo-500">.</span>
         </h1>
 
-        {/* Dashboard Screenshot */}
-        <ProductShowcase />
+        {/* Demo Video */}
+        <VideoShowcase />
 
         <div className="max-w-md mx-auto space-y-5">
         {/* Short Explanation */}
@@ -200,7 +204,8 @@ export const AvmaPage: React.FC = () => {
       </div>
       </div>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -1,8 +1,12 @@
 import { FaLinkedin } from "react-icons/fa6";
+import { Link, useLocation } from "react-router-dom";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/lee-yanik-31ab6733b/";
 
 export const Footer = () => {
+  const location = useLocation();
+  const isAvma = location.pathname === "/avma";
+
   return (
     <footer className="py-12 px-4 border-t border-white/5">
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-6">
@@ -23,6 +27,22 @@ export const Footer = () => {
             reserved.
           </p>
           <div className="flex items-center gap-4 mt-2">
+            {isAvma ? (
+              <Link
+                to="/"
+                className="text-xs text-slate-600 hover:text-indigo-400 transition-colors"
+              >
+                Home
+              </Link>
+            ) : (
+              <Link
+                to="/avma"
+                className="text-xs text-slate-600 hover:text-indigo-400 transition-colors"
+              >
+                Conference Demo
+              </Link>
+            )}
+            <span className="text-slate-800 text-xs">|</span>
             <button className="text-xs text-slate-600 hover:text-indigo-400 transition-colors">
               Privacy Policy
             </button>
